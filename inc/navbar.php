@@ -9,9 +9,6 @@
     <li class="nav-item <?=navActive($page,"CADASTRO");?>">
         <a class="nav-link" href="cadastro.php">Cadastro</a>
     </li>
-    <li class="nav-item <?=navActive($page,"EDITAR");?>">
-        <a class="nav-link" href="editar.php">Editar</a>
-    </li>
     </ul>
 </div>
 </nav>
