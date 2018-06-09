@@ -2,6 +2,10 @@
 include_once("inc/utils.php");
 $page = "LISTA";
 
+if(!isLogged()) {
+  header("Location: index.php?r=no_auth");
+}
+
 if($conn = getConn()){
 $result = getProducts($conn);
 }
