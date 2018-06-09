@@ -98,3 +98,10 @@ function redirIfNotLogged()
     header("Location: index.php?r=no_auth");
   }
 }
+
+function logout()
+{
+  if(isset($_COOKIE["USER_LOGGED"])){
+    setcookie("USER_LOGGED", "", time() -3600);
+  }
+}
