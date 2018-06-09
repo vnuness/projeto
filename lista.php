@@ -1,10 +1,8 @@
 <?php
 include_once("inc/utils.php");
+redirIfNotLogged();
 $page = "LISTA";
 
-if(!isLogged()) {
-  header("Location: index.php?r=no_auth");
-}
 
 if($conn = getConn()){
 $result = getProducts($conn);
@@ -20,7 +18,6 @@ $result = getProducts($conn);
     <title>Projeto CRUD - Listagem</title>
   </head>
   <body>
-
     <?php include ("inc/navbar.php"); ?>
     <br>
 

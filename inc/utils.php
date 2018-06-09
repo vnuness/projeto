@@ -91,7 +91,10 @@ function getUser($conn, $email, $senha)
   return mysqli_query($conn, $query);
 }
 
-function isLogged()
+function redirIfNotLogged()
 {
-  return isset($_COOKIE["USER_LOGGED"]);
+  if(!isset($_COOKIE["USER_LOGGED"]))
+  {
+    header("Location: index.php?r=no_auth");
+  }
 }

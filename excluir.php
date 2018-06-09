@@ -1,6 +1,6 @@
   <?php
 include_once("inc/utils.php");
-
+redirIfNotLogged();
 $conn = getConn();
 
  if($conn && $_POST){
