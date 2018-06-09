@@ -16,3 +16,11 @@
     </ul>
 </div>
 </nav>
+<div class="container">
+  <br>
+  <p> Bem vindo,
+    <?=$_SESSION['USER_LOGGED_NAME'];?>
+    <?=$_SESSION['USER_LOGGED_EMAIL'];?>
+  </p>
+
+</div>
