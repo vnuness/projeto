@@ -43,11 +43,13 @@ while($prod = mysqli_fetch_assoc($result))
   $produto->nome = $prod['nome_produto'];
   $produto->preco = $prod['preco'];
   $produto->quantidade = $prod['quant'];
-  $produto->nomeCategoria = $prod['nome_categoria'];
+  $produto->categoria = new Categoria();
+  $produto->categoria->id = $prod['id_categoria'];
+  $produto->categoria->nome = $prod['nome_categoria'];
+
   array_push($products, $produto);
 
 }
-
   return $products;
 
 

@@ -17,7 +17,7 @@ if($conn && $_POST){
   $product->nome = $_POST['produto'];
   $product->preco = $_POST['preco'];
   $product->quantidade = $_POST['quantidade'];
-  $product->idCategoria = $_POST['id_categoria'];
+  $product->categoria->id = $_POST['id_categoria'];
 
   var_dump(product);
 
