@@ -1,5 +1,6 @@
 <?php
 include_once("classes/Produto.php");
+include_once("classes/Categoria.php");
 
 function navActive($pg, $key) {
   if($pg == $key) {
@@ -39,12 +40,11 @@ function getProducts($conn) {
 while($prod = mysqli_fetch_assoc($result))
 {
   $produto = new Product();
-  $produto->id = $prod['id'];
-  $produto->nome = $prod['nome_produto'];
-  $produto->preco = $prod['preco'];
-  $produto->quantidade = $prod['quant'];
+  $produto->setId($prod['id']);
+  $produto->setNome($prod['nome_produto']);
+  $produto->setPreco($prod['preco']);
+  $produto->setQuant($prod['quant']);
   $produto->categoria = new Categoria();
-  $produto->categoria->id = $prod['id_categoria'];
   $produto->categoria->nome = $prod['nome_categoria'];
 
   array_push($products, $produto);
@@ -58,11 +58,10 @@ function getProduct($result) {
   return mysqli_fetch_assoc($result);
 }
 function addProduct($conn, $product) {
-  var_dump($product);
   echo $query = "INSERT INTO produtos
               ( nome, preco, quant, id_categoria )
             VALUES
-              ( '{$product->nome}', {$product->preco}, '{$product->quantidade}', '{$product->idCategoria}' )";
+              ('{$product->getNome()}', '{$product->getPreco()}', '{$product->getQuant()}', '{$product->categoria->id}')";
 
   return mysqli_query($conn, $query);
 }

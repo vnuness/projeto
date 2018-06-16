@@ -51,7 +51,7 @@ if($conn && $_POST) {
           <!-- Quantidade -->
           <div class="form-group col-md-6">
             <label for="quantidade">Quantidade</label>
-            <input type="text" name="quantidade" class="form-control" id="quantidade" placeholder="Quantidade" value="<?=$prod['quantidade']?>">
+            <input type="text" name="quantidade" class="form-control" id="quantidade" placeholder="Quantidade" value="<?=$prod['quant']?>">
           </div>
 
           <!-- Preço -->
@@ -68,7 +68,7 @@ if($conn && $_POST) {
             <select class="form-control" id="categoria" name="categoria">
               <?php while( $categ = mysqli_fetch_assoc($categories) ): ?>
                 <option value="<?=$categ['id']?>"
-      <?php if($categ['id'] == $prod['id_categoria']) { echo "selected"; } ?>
+      <?php if($categ['id'] == $prod['id_categoria']) { echo "selected"; } ?>>
                   <?=$categ['nome']?>
                 </option>
               <?php endwhile; ?>
