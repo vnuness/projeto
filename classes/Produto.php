@@ -8,6 +8,16 @@ class Product {
   public $categoria;
   public $minEstoque = 50;
 
+// construtor
+
+function __construct($id, $nome, $preco, $quantidade, $categoria)
+{
+  $this->id = $id;
+  $this->nome = $nome;
+  $this->preco = $preco;
+  $this->quantidade = $quantidade;
+  $this->categoria = $categoria;
+}
 
   //métodos
 

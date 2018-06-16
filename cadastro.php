@@ -13,21 +13,17 @@ if($conn) {
 
 if($conn && $_POST){
 
-  $produto = new Product();
-  $produto->setNome($_POST['produto']);
-  $produto->setPreco($_POST['preco']);
-  $produto->setQuant($_POST['quantidade']);
-  $produto->categoria = new Categoria();
+  $produto = new Product(null, $_POST['produto'], $_POST['preco'], $_POST['quantidade'], new Categoria());
   $produto->categoria->id = $_POST['id_categoria'];
 
 
 
     $added = addProduct($conn, $produto);
     if($added){
-             #header("Location: lista.php?action=add&message=success");
+             header("Location: lista.php?action=add&message=success");
     }
     else{
-      #fheader("Location: cadastro.php?action=add&message=failed");
+      header("Location: cadastro.php?action=add&message=failed");
     }
 
 

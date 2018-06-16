@@ -39,12 +39,12 @@ function getProducts($conn) {
 
 while($prod = mysqli_fetch_assoc($result))
 {
-  $produto = new Product();
-  $produto->setId($prod['id']);
-  $produto->setNome($prod['nome_produto']);
-  $produto->setPreco($prod['preco']);
-  $produto->setQuant($prod['quant']);
-  $produto->categoria = new Categoria();
+  $produto = new Product($prod['id'], $prod['nome_produto'], $prod['preco'], $prod['quant'], new Categoria());
+  // $produto->setId($prod['id']);
+  // $produto->setNome($prod['nome_produto']);
+  // $produto->setPreco($prod['preco']);
+  // $produto->setQuant($prod['quant']);
+  //$produto->categoria = new Categoria();
   $produto->categoria->nome = $prod['nome_categoria'];
 
   array_push($products, $produto);
