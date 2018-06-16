@@ -1,6 +1,6 @@
 <?php
 include_once("inc/utils.php");
-redirIfNotLogged();
+//redirIfNotLogged();
 $page = "EDITAR";
 
 $conn = getConn();
@@ -68,7 +68,7 @@ if($conn && $_POST) {
             <select class="form-control" id="categoria" name="categoria">
               <?php while( $categ = mysqli_fetch_assoc($categories) ): ?>
                 <option value="<?=$categ['id']?>"
-      <?php if($categ['id'] == $prod['id_categoria']) { echo "selected"; } ?> 
+      <?php if($categ['id'] == $prod['id_categoria']) { echo "selected"; } ?>
                   <?=$categ['nome']?>
                 </option>
               <?php endwhile; ?>

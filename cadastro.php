@@ -1,6 +1,5 @@
 <?php
 include_once("inc/utils.php");
-include_once("classes/Produto.php");
 //redirIfNotLogged();
 $page = "CADASTRO";
 

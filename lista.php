@@ -4,7 +4,7 @@ include_once("inc/utils.php");
 $page = "LISTA";
 
 if($conn = getConn()) {
-  $result = getProducts($conn);
+  $produtos = getProducts($conn);
 }
 ?>
 <!doctype html>
@@ -32,33 +32,32 @@ if($conn = getConn()) {
           </tr>
         </thead>
         <tbody>
-          <?php while($prod = getProduct($result)): ?>
+          <?php foreach ($produtos as $produto){ ?>
           <tr>
-            <th scope="row"><?= $prod["id"] ?></th>
-            <td><?= $prod["nome_produto"] ?></td>
-            <td><?= $prod["quant"] ?></td>
-            <td><?= $prod["preco"] ?></td>
-            <td><?= $prod["nome_categoria"] ?></td>
+            <th scope="row"><?= $produto->id ?></th>
+            <td><?= $produto->nome ?></td>
+            <td><?= $produto->quantidade ?></td>
+            <td><?= $produto->preco ?></td>
+            <td><?= $produto->nome_categoria ?></td>
             <td>
               <!-- <a href="editar.php">Editar</a> |  -->
 
               <form action="editar.php" method="GET">
-                <input type="hidden" name="id" value="<?= $prod["id"] ?>">
+                <input type="hidden" name="id" value="<?= $produto->id ?>">
                 <input type="hidden" name="message">
                 <button type="submit" class="btn btn-primary">Editar</button>
               </form>
 
 
-              <!-- <a href="excluir.php?id=<?= $prod["id"] ?>">Excluir</a> -->
 
               <form action="excluir.php" method="POST">
-                <input type="hidden" name="id" value="<?= $prod["id"] ?>">
+                <input type="hidden" name="id" value="<?= $produto->id ?>">
                 <button type="submit" class="btn btn-danger">Excluir</button>
               </form>
 
             </td>
           </tr>
-          <?php endwhile; ?>
+        <?php } ?>
         </tbody>
       </table>
     </div>
