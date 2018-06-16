@@ -36,11 +36,12 @@ function getProducts($conn) {
 function getProduct($result) {
   return mysqli_fetch_assoc($result);
 }
-function addProduct($conn, $nome, $preco, $quant, $idcateg) {
-  $query = "INSERT INTO produtos
+function addProduct($conn, $product) {
+  var_dump($product);
+  echo $query = "INSERT INTO produtos
               ( nome, preco, quant, id_categoria )
             VALUES
-              ( '{$nome}', {$preco}, '{$quant}', '{$idcateg}' )";
+              ( '{$product->nome}', {$product->preco}, '{$product->quantidade}', '{$product->idCategoria}' )";
 
   return mysqli_query($conn, $query);
 }
